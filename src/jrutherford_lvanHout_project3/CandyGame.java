@@ -6,19 +6,22 @@ import java.util.Scanner;
 public class CandyGame {
 
 	private Random rand;
+	
+	public CandyGame() {
+		
+	}
 
-	public int getNumberOfPlayers(int min, int max) {
+	public int getNumberOfPlayers(int min, int max, int input) {
 		boolean result = false;
-		Scanner sc = new Scanner(System.in);
 		int num = 0;
 		while(!result) {
-			int userInput = sc.nextInt();
-			if(userInput < min || userInput > max) {
-				System.out.println("Please enter a number between " + min + " and " + max + "inclusive");
+			System.out.println("Please enter a number between " + min + " and " + max + " inclusive");
+			if(input < min || input > max) {
+				System.out.println("That number was not between " + min + " and " + max + 
+						". Please re-enter");
 			}
 			else {
-				sc.close();
-				num = userInput;
+				num = input;
 				result = true;
 			}
 		}
@@ -30,7 +33,9 @@ public class CandyGame {
 	}
 
 	public void distributeCandy(int lower, int upper) {
-		System.out.println("This is wokring properly (distributeCandy())");
+		System.out.println("This is working properly (distributeCandy())");
+		
+		
 	}
 
 	public int[] printIntArray() {
@@ -39,7 +44,7 @@ public class CandyGame {
 	}
 
 	public void passCandy() {
-		System.out.println("This is wokring properly (passCandy())");
+		System.out.println("This is working properly (passCandy())");
 	}
 
 	public boolean isGameDone() {
