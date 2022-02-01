@@ -5,29 +5,32 @@ import java.util.Scanner;
 
 public class CandyGame {
 
+	private Scanner sc;
 	private Random rand;
+	private int[] students;
 
 	public CandyGame() {
-
+		sc = new Scanner(System.in);
+		rand = new Random();
 	}
 
 	public int getNumberOfPlayers(int min, int max) {
-		Scanner sc = new Scanner(System.in);
-		boolean result = false;
-		int input = sc.nextInt();
-		while(!result) {
-			System.out.println("Please enter a number between " + min + " and " + max + " inclusive");
+		System.out.println("Please enter a number between " + min + " and " + max + " inclusive");
+		boolean finished = false;
+		int num = 0;
+		while(!finished) {
+			int input = sc.nextInt();
 			if(input < min || input > max) {
-				System.out.println("That number was not between " + min + " and " + max + 
-						". Please re-enter");
+				System.out.println("Please enter a number between " + min + " and " + max + " inclusive");
 			}
 			else {
-				result = true;
-				sc.close();
+				finished = true;
+				num = input;
 			}
 		}
-		return input;
+		return num;
 	}
+	
 
 	public int getEvenIntInRange(int lower, int upper) {
 		return 0;
