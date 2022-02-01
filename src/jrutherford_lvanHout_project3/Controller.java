@@ -24,18 +24,10 @@ public class Controller {
 	 * Runs the game itself, takes input from user and uses methods from CandyGame
 	 */
 	public void runGame() {
+		cg.getNumberOfPlayers(LOWER_STUDENT_LIMIT, UPPER_STUDENT_LIMIT);
 		
-		//studentNumber = cg.getNumberOfPlayers(LOWER_STUDENT_LIMIT, UPPER_STUDENT_LIMIT);
-
-		//Creates an array that contains the correct number of students
 		
-
-		//Sets bounds for amount of candy distributed
-		//Step 3
-
-		//Step 4
-
-
+		
 	}
 
 

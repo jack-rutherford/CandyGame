@@ -6,14 +6,15 @@ import java.util.Scanner;
 public class CandyGame {
 
 	private Random rand;
-	
+
 	public CandyGame() {
-		
+
 	}
 
-	public int getNumberOfPlayers(int min, int max, int input) {
+	public int getNumberOfPlayers(int min, int max) {
+		Scanner sc = new Scanner(System.in);
 		boolean result = false;
-		int num = 0;
+		int input = sc.nextInt();
 		while(!result) {
 			System.out.println("Please enter a number between " + min + " and " + max + " inclusive");
 			if(input < min || input > max) {
@@ -21,11 +22,11 @@ public class CandyGame {
 						". Please re-enter");
 			}
 			else {
-				num = input;
 				result = true;
+				sc.close();
 			}
 		}
-		return num;
+		return input;
 	}
 
 	public int getEvenIntInRange(int lower, int upper) {
@@ -34,8 +35,8 @@ public class CandyGame {
 
 	public void distributeCandy(int lower, int upper) {
 		System.out.println("This is working properly (distributeCandy())");
-		
-		
+
+
 	}
 
 	public int[] printIntArray() {
