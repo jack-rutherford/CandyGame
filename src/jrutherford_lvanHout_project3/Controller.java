@@ -1,6 +1,5 @@
 package jrutherford_lvanHout_project3;
 
-import java.util.Scanner;
 import java.util.Random;
 
 public class Controller {
@@ -8,7 +7,6 @@ public class Controller {
 	private int lowerBoundCandy;
 	private int upperBoundCandy;
 	private int studentNumber;
-	private Scanner scan;
 	private int[] students;
 	private static final int LOWER_STUDENT_LIMIT = 15, UPPER_STUDENT_LIMIT = 30;
 
@@ -18,7 +16,6 @@ public class Controller {
 	public Controller() {
 		cg = new CandyGame();
 		studentNumber = 15;
-		scan = new Scanner(System.in);
 
 
 	}
@@ -27,19 +24,10 @@ public class Controller {
 	 * Runs the game itself, takes input from user and uses methods from CandyGame
 	 */
 	public void runGame() {
-		//Sets the number of students that will be playing the game
-//		boolean hasPlayerNumber = false;
-//		while(!hasPlayerNumber) {
-//			int input = scan.nextInt();
-//			studentNumber = cg.getNumberOfPlayers(LOWER_STUDENT_LIMIT, UPPER_STUDENT_LIMIT, input);
-//		}
+		cg.getNumberOfPlayers(LOWER_STUDENT_LIMIT, UPPER_STUDENT_LIMIT);
 		
-		studentNumber = cg.getNumberOfPlayers(LOWER_STUDENT_LIMIT, UPPER_STUDENT_LIMIT);
-		//Creates an array that contains the correct number of students
-		students = new int[studentNumber];
-
-		//Sets bounds for amount of candy distributed
-
+		
+		
 	}
 
 
