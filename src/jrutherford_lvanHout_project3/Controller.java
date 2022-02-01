@@ -34,8 +34,7 @@ public class Controller {
 //			studentNumber = cg.getNumberOfPlayers(LOWER_STUDENT_LIMIT, UPPER_STUDENT_LIMIT, input);
 //		}
 		
-		int input = scan.nextInt();
-		studentNumber = cg.getNumberOfPlayers(LOWER_STUDENT_LIMIT, UPPER_STUDENT_LIMIT, input);
+		studentNumber = cg.getNumberOfPlayers(LOWER_STUDENT_LIMIT, UPPER_STUDENT_LIMIT);
 		//Creates an array that contains the correct number of students
 		students = new int[studentNumber];
 
