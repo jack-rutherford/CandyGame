@@ -20,7 +20,7 @@ public class CandyGame {
 	 * @param max
 	 * @return
 	 */
-	public int getNumberOfPlayers(int min, int max) {
+	public int setNumberOfPlayers(int min, int max) {
 		System.out.println("Please enter a number between " + min + " and " + max + " inclusive");
 		boolean finished = false;
 		int num = 0;
@@ -34,6 +34,7 @@ public class CandyGame {
 				num = input;
 			}
 		}
+		createArray(num);
 		return num;
 	}
 	
@@ -61,4 +62,7 @@ public class CandyGame {
 		return false;
 	}
 
+	private void createArray(int i) {
+		students = new int[i];
+	}
 }
