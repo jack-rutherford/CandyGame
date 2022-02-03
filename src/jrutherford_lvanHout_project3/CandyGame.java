@@ -126,13 +126,13 @@ public class CandyGame {
 				students[j]++;
 			}
 		}
+		
+		if(flag) {
+			printIntArray();
+		}
 
 		if(!isGameDone()) {
 			passCandy();
-		}
-
-		if(flag) {
-			printIntArray();
 		}
 
 	}
