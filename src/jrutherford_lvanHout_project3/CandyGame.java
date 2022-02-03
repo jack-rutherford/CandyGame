@@ -70,15 +70,26 @@ public class CandyGame {
 	//	}
 
 	private void distributeCandy(int min, int max) {
-		System.out.println("This is working properly (distributeCandy())");
-		//use random num generator and make it even
-		rand = new Random();
-		int num = rand.nextInt(min, max);
+		for(int i = 0; i < students.length; i++) {  //this might need to be length-1; CHECK LATER when done
+			rand = new Random();
+			
+			int num = 0;
+			boolean result = false;
+			
+			while(!result) { //checks to make sure it generates a random even number
+				num = rand.nextInt(max-min) + min;
+				if(num % 2 == 0) { //if its even, result = true ending the while loop
+					result = true;
+				}
+			}
+			students[i] = num;
+		}
 	}
 
 	private void printIntArray() {
-		int[] temp = new int[0];
-		//use demo method %4 printf line to print array
+		for(int i = 0; i < students.length; i++) {
+			System.out.printf("%4", students[i] + "\n");
+		}
 	}
 
 	private void passCandy() {
