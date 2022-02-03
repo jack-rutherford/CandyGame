@@ -8,6 +8,13 @@ public class CandyGame {
 	private Scanner sc;
 	private Random rand;
 	private int[] students;
+	private int lowerBoundCandy;
+	private int upperBoundCandy;
+	private int studentNumber;
+	private static final int LOWER_STUDENT_LIMIT = 15, UPPER_STUDENT_LIMIT = 30;
+	private static final int LOWER_LOWER_BOUND = 4, LOWER_UPPER_BOUND = 10;
+	private int upperLowerBound;
+	private int upperUpperBound;
 
 	public CandyGame() {
 		sc = new Scanner(System.in);
@@ -55,11 +62,11 @@ public class CandyGame {
 		}
 		return num;
 	}
-	
+
 	// I don't think we need this, setBound should do it
-//	public int getEvenIntInRange(int lower, int upper) {
-//		return 0;
-//	}
+	//	public int getEvenIntInRange(int lower, int upper) {
+	//		return 0;
+	//	}
 
 	private void distributeCandy(int min, int max) {
 		System.out.println("This is working properly (distributeCandy())");
@@ -80,9 +87,52 @@ public class CandyGame {
 		return false;
 		//iterate through array, if all values are equal return true
 	}
-	
+
 	public void runGame() {
-		//Luke will work on this
-	}
-	
+
+		// Gets the number of students in the game
+		int numOfStudents = setNumberOfPlayers(LOWER_STUDENT_LIMIT, UPPER_STUDENT_LIMIT);
+
+		// Sets the lower bound for amount of candy a student can get
+		System.out.println("Setting the lower bound of candy:");
+		int lowNumOfCandy = setBound(LOWER_LOWER_BOUND, LOWER_UPPER_BOUND);
+
+		// Sets limit for smallest size of the upper bound
+		upperLowerBound = lowNumOfCandy + 2;
+
+		// Sets limit for largest size of the upper bound
+		upperUpperBound = lowNumOfCandy + 50;
+
+		// Sets the upper bound for amount of candy a student can get
+		System.out.println("Setting the upper bound of candy:");
+		int highNumOfCandy = setBound(upperLowerBound, upperUpperBound);
+
+		// Distribute the candy to the students
+		distributeCandy(lowNumOfCandy, highNumOfCandy);
+
+		// Have user decide if they want the array printed every time
+		System.out.println("Would you like the array to be printed every time candy is redistributed? (yes or no)");
+		boolean print;
+		boolean finished = false;
+		while(!finished) {
+			String answer = sc.next().toLowerCase();
+			if(!answer.contains("no") || !answer.contains("yes")) {
+				System.out.println("Would you like the array to be printed every time candy is redistributed? (yes or no)");
+			}
+			if(answer.contains("no")) {
+				print = false;
+				finished = true;
+			}
+			if(answer.contains("yes")) {
+				print = true;
+				finished = true;
+			}
+		}
+		
+		
+//		boolean isGameDone = isGameDone();
+//		while(!isGameDone) {
+//			
+//		}
+	}	
 }
