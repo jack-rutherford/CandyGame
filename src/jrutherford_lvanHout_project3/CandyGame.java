@@ -127,7 +127,7 @@ public class CandyGame {
 			}
 		}
 
-		if(isGameDone()) {
+		if(!isGameDone()) {
 			passCandy();
 		}
 
