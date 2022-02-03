@@ -127,15 +127,10 @@ public class CandyGame {
 			}
 		}
 
-		// check if everything in the array is equal, if not use recursion
-		// to run the method again to make them equal :)
-		int first = students[0];
-		for(int k = 1; k < students.length; k++) {
-			if(students[k] !=  first) {
-				passCandy();
-			}
+		if(isGameDone()) {
+			passCandy();
 		}
-		
+
 		if(flag) {
 			printIntArray();
 		}
@@ -143,8 +138,16 @@ public class CandyGame {
 	}
 
 	private boolean isGameDone() {
-		return false;
 		//iterate through array, if all values are equal return true
+		// check if everything in the array is equal, if not use recursion
+		// to run the method again to make them equal :)
+		int first = students[0];
+		for(int k = 1; k < students.length; k++) {
+			if(students[k] !=  first) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	public void runGame() {
