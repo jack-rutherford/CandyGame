@@ -105,7 +105,8 @@ public class CandyGame {
 
 		// Gets the number of students in the game
 		int numOfStudents = setNumberOfPlayers(LOWER_STUDENT_LIMIT, UPPER_STUDENT_LIMIT);
-
+		students = new int[numOfStudents];
+		
 		// Sets the lower bound for amount of candy a student can get
 		System.out.println("Setting the lower bound of candy:");
 		int lowNumOfCandy = setBound(LOWER_LOWER_BOUND, LOWER_UPPER_BOUND);
@@ -123,6 +124,10 @@ public class CandyGame {
 		// Distribute the candy to the students
 		distributeCandy(lowNumOfCandy, highNumOfCandy);
 
+		// Print out original deal
+		System.out.println("Here is the original deal:");
+		printIntArray();
+		
 		// Have user decide if they want the array printed every time
 		System.out.println("Would you like the array to be printed every time candy is redistributed? (yes or no)");
 		boolean print;
