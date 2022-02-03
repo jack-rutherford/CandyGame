@@ -127,9 +127,10 @@ public class CandyGame {
 		// Print out original deal
 		System.out.println("Here is the original deal:");
 		printIntArray();
+		System.out.println();
 		
 		// Have user decide if they want the array printed every time
-		System.out.println("\nWould you like the array to be printed every time candy is redistributed? (yes or no)");
+		System.out.println("Would you like the array to be printed every time candy is redistributed? (yes or no)");
 		boolean print;
 		boolean finished = false;
 		while(!finished) {
