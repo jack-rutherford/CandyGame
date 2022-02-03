@@ -87,8 +87,8 @@ public class CandyGame {
 	}
 
 	private void printIntArray() {
-		for(int i = 0; i < students.length; i++) {
-			System.out.printf("%4", students[i] + "\n"); // something is wrong with this line of code, please look at it
+		for(int i = 0; i < students.length-1; i++) {
+			System.out.printf("%4d", students[i]); // something is wrong with this line of code, please look at it
 		}
 	}
 
@@ -129,7 +129,7 @@ public class CandyGame {
 		printIntArray();
 		
 		// Have user decide if they want the array printed every time
-		System.out.println("Would you like the array to be printed every time candy is redistributed? (yes or no)");
+		System.out.println("\nWould you like the array to be printed every time candy is redistributed? (yes or no)");
 		boolean print;
 		boolean finished = false;
 		while(!finished) {
