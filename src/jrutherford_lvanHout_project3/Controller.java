@@ -19,7 +19,6 @@ public class Controller {
 	public static void main(String[] args) {
 		CandyGame cg = new CandyGame();
 		cg.runGame();
-		
 	}
 
 }

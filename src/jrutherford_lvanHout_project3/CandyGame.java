@@ -72,10 +72,10 @@ public class CandyGame {
 	private void distributeCandy(int min, int max) {
 		for(int i = 0; i < students.length; i++) {  //this might need to be length-1; CHECK LATER when done
 			rand = new Random();
-			
+
 			int num = 0;
 			boolean result = false;
-			
+
 			while(!result) { //checks to make sure it generates a random even number
 				num = rand.nextInt(max-min) + min;
 				if(num % 2 == 0) { //if its even, result = true ending the while loop
@@ -86,22 +86,54 @@ public class CandyGame {
 		}
 	}
 
-	private void printIntArray() {
+	private void printIntArray() { 
 		for(int i = 0; i < students.length-1; i++) {
 			System.out.printf("%4d", students[i]);
 		}
 	}
 
-	private void passCandy() {
-//		System.out.println("This is working properly (passCandy())");
+	/**
+	 * First for loop: Make temp array = to student array with everything  
+	 * shifted up 1 index (to the right) and divided by 2, and then divide 
+	 * the students array value at index by 2 as well 
+	 * 
+	 * Second for loop: Add the temp array and student array together and 
+	 * make all value even numbers
+	 * 
+	 * Third for loop: Check that everything in the array is equal, if it
+	 * isn't run the method again (with the intent that it will all be equal)
+	 * 
+	 */
+	private void passCandy() { 
+
 		int[] temp = new int[students.length];
-		for(int i = 0; i < students.length-1; i++) {
-			temp[i+1] = students[i];
-			students[i] = students[i] / 2;
-			if(i == students.length-1) {
-				temp[0] = students[i+1];
+		for(int i = 0; i < students.length; i++) {
+			if(i == students.length-1) { 
+				temp[0] = students[i] / 2; //first temp value = the last student value / 2
+			}
+			else {
+				temp[i+1] = students[i] / 2; //temp value to the right = student value at i / 2
+			}
+			students[i] = students[i] / 2; //divide the student array index by 2
+		}
+
+		// Adds the temp array to the student array, and makes it even
+		for(int j = 0; j < students.length; j++) {
+			students[j] += temp[j];
+			if(students[j] % 2 == 1) {
+				students[j]++;
 			}
 		}
+
+		// check if everything in the array is equal, if not use recursion
+		// to run the method again to make them equal :)
+		int first = students[0];
+		for(int k = 1; k < students.length; k++) {
+			if(students[k] !=  first) {
+				passCandy();
+			}
+		}
+
 	}
 
 	private boolean isGameDone() {
@@ -114,7 +146,7 @@ public class CandyGame {
 		// Gets the number of students in the game
 		int numOfStudents = setNumberOfPlayers(LOWER_STUDENT_LIMIT, UPPER_STUDENT_LIMIT);
 		students = new int[numOfStudents];
-		
+
 		// Sets the lower bound for amount of candy a student can get
 		System.out.println("Setting the lower bound of candy:");
 		int lowNumOfCandy = setBound(LOWER_LOWER_BOUND, LOWER_UPPER_BOUND);
@@ -136,7 +168,7 @@ public class CandyGame {
 		System.out.println("Here is the original deal:");
 		printIntArray();
 		System.out.println();
-		
+
 		// Have user decide if they want the array printed every time
 		System.out.println("Would you like the array to be printed every time candy is redistributed? (yes or no)");
 		boolean print;
@@ -155,11 +187,11 @@ public class CandyGame {
 				finished = true;
 			}
 		}
-		
-		
-//		boolean isGameDone = isGameDone();
-//		while(!isGameDone) {
-//			
-//		}
+
+
+		//		boolean isGameDone = isGameDone();
+		//		while(!isGameDone) {
+		//			
+		//		}
 	}	
 }
