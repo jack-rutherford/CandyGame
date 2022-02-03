@@ -88,7 +88,7 @@ public class CandyGame {
 
 	private void printIntArray() {
 		for(int i = 0; i < students.length; i++) {
-			System.out.printf("%4", students[i] + "\n");
+			System.out.printf("%4", students[i] + "\n"); // something is wrong with this line of code, please look at it
 		}
 	}
 
