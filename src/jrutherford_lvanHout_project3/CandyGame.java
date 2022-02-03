@@ -20,7 +20,7 @@ public class CandyGame {
 	 * @param max
 	 * @return
 	 */
-	public int setNumberOfPlayers(int min, int max) {
+	private int setNumberOfPlayers(int min, int max) {
 		System.out.println("Setting number of students:");
 		System.out.println("Please enter a number between " + min + " and " + max + " inclusive");
 		boolean finished = false;
@@ -35,12 +35,11 @@ public class CandyGame {
 				num = input;
 			}
 		}
-		createArray(num);
 		return num;
 	}
 
 	//need to add if statement that only allows even numbers
-	public int setBound(int min, int max) {
+	private int setBound(int min, int max) {
 		System.out.println("Please enter an even number between " + min + " and " + max + " inclusive");
 		boolean finished = false;
 		int num = 0;
@@ -62,26 +61,28 @@ public class CandyGame {
 //		return 0;
 //	}
 
-	public void distributeCandy(int lower, int upper) {
+	private void distributeCandy(int min, int max) {
 		System.out.println("This is working properly (distributeCandy())");
-
+		//use random num generator and make it even
 
 	}
 
-	public int[] printIntArray() {
+	private void printIntArray() {
 		int[] temp = new int[0];
-		return temp;
+		//use demo method %4 printf line to print array
 	}
 
-	public void passCandy() {
+	private void passCandy() {
 		System.out.println("This is working properly (passCandy())");
 	}
 
-	public boolean isGameDone() {
+	private boolean isGameDone() {
 		return false;
+		//iterate through array, if all values are equal return true
 	}
-
-	private void createArray(int i) {
-		students = new int[i];
+	
+	public void runGame() {
+		//Luke will work on this
 	}
+	
 }
