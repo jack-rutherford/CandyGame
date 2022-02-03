@@ -2,6 +2,7 @@ package jrutherford_lvanHout_project3;
 
 import java.util.Random;
 import java.util.Scanner;
+import java.util.stream.IntStream;
 
 public class CandyGame {
 
@@ -71,6 +72,7 @@ public class CandyGame {
 	private void distributeCandy(int min, int max) {
 		System.out.println("This is working properly (distributeCandy())");
 		//use random num generator and make it even
+		rand = new Random();
 
 	}
 
