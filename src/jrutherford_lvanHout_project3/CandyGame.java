@@ -73,7 +73,7 @@ public class CandyGame {
 		System.out.println("This is working properly (distributeCandy())");
 		//use random num generator and make it even
 		rand = new Random();
-
+		int num = rand.nextInt(min, max);
 	}
 
 	private void printIntArray() {
