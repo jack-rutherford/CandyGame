@@ -16,10 +16,12 @@ public class CandyGame {
 	private static final int LOWER_LOWER_BOUND = 4, LOWER_UPPER_BOUND = 10;
 	private int upperLowerBound;
 	private int upperUpperBound;
+	private boolean flag;
 
 	public CandyGame() {
 		sc = new Scanner(System.in);
 		rand = new Random();
+		flag = false;
 	}
 
 	/**
@@ -133,6 +135,10 @@ public class CandyGame {
 				passCandy();
 			}
 		}
+		
+		if(flag) {
+			printIntArray();
+		}
 
 	}
 
@@ -181,10 +187,12 @@ public class CandyGame {
 			if(answer.contains("no")) {
 				print = false;
 				finished = true;
+				flag = false; //flag is a field for the method, if it's true it prints every time, if false it doesn't
 			}
 			if(answer.contains("yes")) {
 				print = true;
 				finished = true;
+				flag = true;
 			}
 		}
 
