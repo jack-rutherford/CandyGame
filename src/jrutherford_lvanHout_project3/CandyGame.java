@@ -88,12 +88,20 @@ public class CandyGame {
 
 	private void printIntArray() {
 		for(int i = 0; i < students.length-1; i++) {
-			System.out.printf("%4d", students[i]); // something is wrong with this line of code, please look at it
+			System.out.printf("%4d", students[i]);
 		}
 	}
 
 	private void passCandy() {
-		System.out.println("This is working properly (passCandy())");
+//		System.out.println("This is working properly (passCandy())");
+		int[] temp = new int[students.length];
+		for(int i = 0; i < students.length-1; i++) {
+			temp[i+1] = students[i];
+			students[i] = students[i] / 2;
+			if(i == students.length-1) {
+				temp[0] = students[i+1];
+			}
+		}
 	}
 
 	private boolean isGameDone() {
