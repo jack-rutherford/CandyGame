@@ -245,5 +245,8 @@ public class CandyGame {
 
 		//Distributes the candy among the students
 		passCandy();
+		if(!flag) {
+			printIntArray();
+		}
 	}	
 }
