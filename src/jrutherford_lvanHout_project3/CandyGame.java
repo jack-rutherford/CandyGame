@@ -2,8 +2,15 @@ package jrutherford_lvanHout_project3;
 
 import java.util.Random;
 import java.util.Scanner;
-import java.util.stream.IntStream;
 
+/**
+ * 
+ * @author jackrutherford
+ * @author lukevanhout
+ * @date 2/3/22
+ * @class CSCI 235
+ *
+ */
 public class CandyGame {
 
 	private Scanner sc;
@@ -23,9 +30,11 @@ public class CandyGame {
 
 	/**
 	 * 
+	 * 
+	 * 
 	 * @param min
 	 * @param max
-	 * @return
+	 * @return num
 	 */
 	private int setNumberOfPlayers(int min, int max) {
 		System.out.println("Setting number of students:");
@@ -44,8 +53,13 @@ public class CandyGame {
 		}
 		return num;
 	}
-
-	//need to add if statement that only allows even numbers
+	
+	/**
+	 * 
+	 * @param min
+	 * @param max
+	 * @return
+	 */
 	private int setBound(int min, int max) {
 		System.out.println("Please enter an even number between " + min + " and " + max + " inclusive");
 		boolean finished = false;
@@ -62,22 +76,21 @@ public class CandyGame {
 		}
 		return num;
 	}
-
-	// I don't think we need this, setBound should do it
-	//	public int getEvenIntInRange(int lower, int upper) {
-	//		return 0;
-	//	}
-
+	
+	/**
+	 * Uses the Random class to distribute candy within the bounds (parameters)
+	 * and makes sure that the random number is an even number
+	 * @param min
+	 * @param max
+	 */
 	private void distributeCandy(int min, int max) {
-		for(int i = 0; i < students.length; i++) {  //this might need to be length-1; CHECK LATER when done
+		for(int i = 0; i < students.length; i++) { 
 			rand = new Random();
-
 			int num = 0;
 			boolean result = false;
-
 			while(!result) { //checks to make sure it generates a random even number
 				num = rand.nextInt(max-min) + min;
-				if(num % 2 == 0) { //if its even, result = true ending the while loop
+				if(num % 2 == 0) { //if it's even, result = true ending the while loop
 					result = true;
 				}
 			}
@@ -85,6 +98,9 @@ public class CandyGame {
 		}
 	}
 
+	/**
+	 * Print the array of students with a field width of size 4 between numbers
+	 */
 	private void printIntArray() { 
 		for(int i = 0; i < students.length-1; i++) {
 			System.out.printf("%4d", students[i]);
@@ -99,8 +115,8 @@ public class CandyGame {
 	 * Second for loop: Add the temp array and student array together and 
 	 * make all value even numbers
 	 * 
-	 * Third for loop: Check that everything in the array is equal, if it
-	 * isn't run the method again (with the intent that it will all be equal)
+	 * Then check if you want to print the array each time, and do a check with
+	 * the isGameDone() method to check if all values in students are equal to each other
 	 * 
 	 */
 	private void passCandy() { 
@@ -124,12 +140,14 @@ public class CandyGame {
 			}
 		}
 		
+		//if flag == true, print the array each time passCandy() is called
 		if(flag) {
 			printIntArray();
 			System.out.println();
 			
 		}
-
+		
+		//if everything in the array isn't equal, run passCandy() again
 		if(!isGameDone()) {
 			passCandy();
 		}
@@ -187,11 +205,11 @@ public class CandyGame {
 			}
 			if(answer.contains("no")) {
 				finished = true;
-				flag = false; //flag is a field for the method, if it's true it prints every time, if false it doesn't
+				flag = false; //false = don't print each time passCandy() is called
 			}
 			if(answer.contains("yes")) {
 				finished = true;
-				flag = true;
+				flag = true; //true = print each time passCandy() is called
 			}
 		}
 
