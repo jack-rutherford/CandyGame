@@ -168,9 +168,6 @@ public class CandyGame {
 	 * @return boolean
 	 */
 	private boolean isGameDone() {
-		//iterate through array, if all values are equal return true
-		// check if everything in the array is equal, if not use recursion
-		// to run the method again to make them equal :)
 		int first = students[0];
 		for(int k = 1; k < students.length; k++) {
 			if(students[k] !=  first) {
