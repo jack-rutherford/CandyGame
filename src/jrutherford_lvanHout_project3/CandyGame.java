@@ -29,12 +29,14 @@ public class CandyGame {
 	}
 
 	/**
+	 * This method prompts the user for a number within the minimum and maximum
+	 * parameters. If the user's input is an integer within those bounds it returns
+	 * the integer. Otherwise it prints a message asking for the correct input.
 	 * 
 	 * 
-	 * 
-	 * @param min
-	 * @param max
-	 * @return num
+	 * @param min Minimum number of players
+	 * @param max Maximum number of players
+	 * @return num Number of players
 	 */
 	private int setNumberOfPlayers(int min, int max) {
 		System.out.println("Setting number of students:");
@@ -55,10 +57,14 @@ public class CandyGame {
 	}
 	
 	/**
+	 * This method is similar to setNumberOfPlayers, its job is to get an even integer
+	 * within the bounds provided in the parameters. It will return the inputed integer from
+	 * the user if it fits all parameters and is even, otherwise a new prompt will be printed
+	 * for the user.
 	 * 
-	 * @param min
-	 * @param max
-	 * @return
+	 * @param min Minimum number of candy
+	 * @param max Maximum number of candy
+	 * @return int The desired bound
 	 */
 	private int setBound(int min, int max) {
 		System.out.println("Please enter an even number between " + min + " and " + max + " inclusive");
@@ -154,6 +160,11 @@ public class CandyGame {
 
 	}
 
+	/**
+	 * Checks to see if the game is done, which is when every student has the same
+	 * amount of candy
+	 * @return boolean
+	 */
 	private boolean isGameDone() {
 		//iterate through array, if all values are equal return true
 		// check if everything in the array is equal, if not use recursion
@@ -167,6 +178,23 @@ public class CandyGame {
 		return true;
 	}
 
+	/**
+	 * This is the main method of the class that actually is used to run
+	 * the candy game. Below is a list of what it does in order
+	 * 
+	 * 1. Set the number of players
+	 * 
+	 * 2. Set the upper and lower bounds of the random amount of candy
+	 * that can be assigned
+	 * 
+	 * 3. Distribute random amounts of candy (within bounds) to each student
+	 * 
+	 * 4. Prints out the original deal of the candy
+	 * 
+	 * 5. Asks the user if they want the new deal printed every time
+	 * 
+	 * 6. Passes the candy and either prints every time or prints the final array when the game is done
+	 */
 	public void runGame() {
 
 		// Gets the number of students in the game
@@ -200,8 +228,8 @@ public class CandyGame {
 		boolean finished = false;
 		while(!finished) {
 			String answer = sc.next().toLowerCase();
-			if(!answer.contains("no") || !answer.contains("yes")) {
-				System.out.println("Would you like the array to be printed every time candy is redistributed? (yes or no)");
+			if(!answer.contains("no") && !answer.contains("yes")) {
+				System.out.println("Please enter yes or no");
 			}
 			if(answer.contains("no")) {
 				finished = true;
@@ -215,5 +243,8 @@ public class CandyGame {
 
 		//Distributes the candy among the students
 		passCandy();
+		if(!flag) {
+			printIntArray();
+		}
 	}	
 }

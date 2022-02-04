@@ -4,6 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 /**
+ * This is the class that instantiates and runs the CandyGame class
  * 
  * @author jackrutherford
  * @author lukevanhout
