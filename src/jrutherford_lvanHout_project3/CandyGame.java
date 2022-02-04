@@ -9,9 +9,6 @@ public class CandyGame {
 	private Scanner sc;
 	private Random rand;
 	private int[] students;
-	private int lowerBoundCandy;
-	private int upperBoundCandy;
-	private int studentNumber;
 	private static final int LOWER_STUDENT_LIMIT = 15, UPPER_STUDENT_LIMIT = 30;
 	private static final int LOWER_LOWER_BOUND = 4, LOWER_UPPER_BOUND = 10;
 	private int upperLowerBound;
@@ -129,6 +126,8 @@ public class CandyGame {
 		
 		if(flag) {
 			printIntArray();
+			System.out.println();
+			
 		}
 
 		if(!isGameDone()) {
@@ -180,7 +179,6 @@ public class CandyGame {
 
 		// Have user decide if they want the array printed every time
 		System.out.println("Would you like the array to be printed every time candy is redistributed? (yes or no)");
-		boolean print;
 		boolean finished = false;
 		while(!finished) {
 			String answer = sc.next().toLowerCase();
@@ -188,21 +186,16 @@ public class CandyGame {
 				System.out.println("Would you like the array to be printed every time candy is redistributed? (yes or no)");
 			}
 			if(answer.contains("no")) {
-				print = false;
 				finished = true;
 				flag = false; //flag is a field for the method, if it's true it prints every time, if false it doesn't
 			}
 			if(answer.contains("yes")) {
-				print = true;
 				finished = true;
 				flag = true;
 			}
 		}
 
-
-		//		boolean isGameDone = isGameDone();
-		//		while(!isGameDone) {
-		//			
-		//		}
+		//Distributes the candy among the students
+		passCandy();
 	}	
 }
