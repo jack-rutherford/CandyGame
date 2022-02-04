@@ -5,16 +5,19 @@ import java.util.Scanner;
 
 /**
  * 
- * @author jackrutherford
+ * This is the Candy Game class where all the methods of passing candy and
+ * distributing the candy are made. This class handles most of the logistics
+ * of actually dealing with the candy and making sure they're even numbers
+ * 
  * @author lukevanhout
- * @date 2/3/22
+ * @author jackrutherford
+ * @date 2/4/22
  * @class CSCI 235
  *
  */
 public class CandyGame {
 
 	private Scanner sc;
-	private Random rand;
 	private int[] students;
 	private static final int LOWER_STUDENT_LIMIT = 15, UPPER_STUDENT_LIMIT = 30;
 	private static final int LOWER_LOWER_BOUND = 4, LOWER_UPPER_BOUND = 10;
@@ -24,7 +27,6 @@ public class CandyGame {
 
 	public CandyGame() {
 		sc = new Scanner(System.in);
-		rand = new Random();
 		flag = false;
 	}
 
@@ -55,7 +57,7 @@ public class CandyGame {
 		}
 		return num;
 	}
-	
+
 	/**
 	 * This method is similar to setNumberOfPlayers, its job is to get an even integer
 	 * within the bounds provided in the parameters. It will return the inputed integer from
@@ -82,7 +84,7 @@ public class CandyGame {
 		}
 		return num;
 	}
-	
+
 	/**
 	 * Uses the Random class to distribute candy within the bounds (parameters)
 	 * and makes sure that the random number is an even number
@@ -91,7 +93,7 @@ public class CandyGame {
 	 */
 	private void distributeCandy(int min, int max) {
 		for(int i = 0; i < students.length; i++) { 
-			rand = new Random();
+			Random rand = new Random();
 			int num = 0;
 			boolean result = false;
 			while(!result) { //checks to make sure it generates a random even number
@@ -145,14 +147,14 @@ public class CandyGame {
 				students[j]++;
 			}
 		}
-		
+
 		//if flag == true, print the array each time passCandy() is called
 		if(flag) {
 			printIntArray();
 			System.out.println();
-			
+
 		}
-		
+
 		//if everything in the array isn't equal, run passCandy() again
 		if(!isGameDone()) {
 			passCandy();
@@ -243,8 +245,5 @@ public class CandyGame {
 
 		//Distributes the candy among the students
 		passCandy();
-		if(!flag) {
-			printIntArray();
-		}
 	}	
 }
