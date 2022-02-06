@@ -196,7 +196,7 @@ public class CandyGame {
 	 */
 	public void runGame() {
 
-		// Gets the number of students in the game
+		// Gets the number of st udents in the game
 		int numOfStudents = setNumberOfPlayers(LOWER_STUDENT_LIMIT, UPPER_STUDENT_LIMIT);
 		students = new int[numOfStudents];
 
